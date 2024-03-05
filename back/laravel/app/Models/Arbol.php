@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class create_db extends Model
+class Arbol extends Model
 {
     use HasFactory;
+    protected $table = 'arboles';
+    protected $fillable = ['nombre'];
+
 }

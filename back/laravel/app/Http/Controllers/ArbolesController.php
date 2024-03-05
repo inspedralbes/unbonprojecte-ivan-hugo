@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class create_db extends Controller
+class ArbolesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //select * from db
-        $records = DB::table('db')->get();
+        $arboles = DB::table('arboles')->get();
+        return response()->json($arboles);
     }
 
     /**
@@ -20,7 +21,11 @@ class create_db extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arbol = DB::table('arboles')->insert([
+            'nombre' => $request->nombre,
+        ]);
+
+        return response()->json($arbol, 201);
     }
 
     /**
