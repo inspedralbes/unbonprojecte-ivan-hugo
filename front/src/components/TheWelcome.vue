@@ -3,13 +3,6 @@
     <h1>Bienvenido a nuestra página de arboles</h1>
     <button @click="verListado">Ver listado</button>
 </div>
-    <div v-if="arboles">
-      <ul>
-        <li v-for="arbol in arboles" :key="arbol.id">
-          {{ arbol.nombre }}
-        </li>
-      </ul>
-  </div>
 </template>
 
 <script>
