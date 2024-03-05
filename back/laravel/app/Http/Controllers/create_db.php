@@ -12,7 +12,7 @@ class create_db extends Controller
     public function index()
     {
         //select * from db
-        $records = DB::table('arboles')->get();
+        $records = DB::table('db')->get();
     }
 
     /**
