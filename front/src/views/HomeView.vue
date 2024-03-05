@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Landing from '../components/Landing.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Landing />
   </main>
 </template>
