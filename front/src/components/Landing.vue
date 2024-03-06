@@ -1,20 +1,32 @@
 <template>
   <div class="landing">
-    <h1>Bienvenido a nuestra página de arboles</h1>
-    <button @click="verListado">Ver listado</button>
-</div>
+    <h1 v-if="!fetchComplete">Bienvenido a nuestra página de arboles</h1>
+    <button v-if="!fetchComplete" @click="verListado">Ver listado</button>
+    <h1 v-if="fetchComplete">El listado de arboles se ha cargado correctamente.</h1>
+    <ul v-if="fetchComplete">
+      <li v-for="arbol in arboles" :key="arbol.id">
+        {{ arbol.nombre }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
 
 export default {
+  data() {
+    return {
+      arboles: [],
+      fetchComplete: false,
+    };
+  },
   methods: {
     async verListado() {
       try {
-        const response = await axios.get('./arboles.json');
+        const response = await axios.get('http://127.0.0.1:8000/api/arboles');
         this.arboles = response.data;
-        console.log(this.arboles);
+        this.fetchComplete = true;
       } catch (error) {
         console.error('Error:', error);
       }
