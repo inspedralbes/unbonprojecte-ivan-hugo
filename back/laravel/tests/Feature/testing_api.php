@@ -14,7 +14,6 @@ class testing_api extends TestCase
     public function test_example(): void
     {
         $response = $this->get('/api/arboles');
-
         $response->assertStatus(200)
                  ->assertJsonStructure([
                      '*' => ['id', 'nombre']
